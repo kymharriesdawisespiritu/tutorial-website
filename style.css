@@ -1,0 +1,77 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f7fa;
+}
+
+header {
+  background: #1f2937;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+nav {
+  width: 220px;
+  background: #111827;
+  color: #fff;
+  padding: 16px;
+}
+
+nav button {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 10px;
+  background: #374151;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+nav button:hover {
+  background: #4b5563;
+}
+
+main {
+  flex: 1;
+  padding: 24px;
+  background: #ffffff;
+}
+
+.step {
+  display: none;
+}
+
+.step.active {
+  display: block;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+.controls button {
+  padding: 10px 16px;
+  margin-right: 8px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.controls button:disabled {
+  background: #9ca3af;
+}
+
+pre {
+  background: #f3f4f6;
+  padding: 12px;
+  overflow-x: auto;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tutorial Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>Simple Tutorial Website</h1>
+  <p>Step-by-step learning</p>
+</header>
+
+<div class="container">
+  <nav>
+    <button onclick="goStep(0)">Intro</button>
+    <button onclick="goStep(1)">Step 1</button>
+    <button onclick="goStep(2)">Step 2</button>
+    <button onclick="goStep(3)">Finish</button>
+  </nav>
+
+  <main>
+    <div class="step active">
+      <h2>Welcome</h2>
+      <p>This is a tutorial-style website. Use Next / Previous to navigate.</p>
+    </div>
+
+    <div class="step">
+      <h2>Step 1: HTML</h2>
+      <p>Create a basic HTML structure.</p>
+      <pre>&lt;html&gt;
+  &lt;head&gt;&lt;/head&gt;
+  &lt;body&gt;Hello&lt;/body&gt;
+&lt;/html&gt;</pre>
+    </div>
+
+    <div class="step">
+      <h2>Step 2: CSS</h2>
+      <p>Add styles to make it look good.</p>
+      <pre>body {
+  font-family: Arial;
+}</pre>
+    </div>
+
+    <div class="step">
+      <h2>Finish</h2>
+      <p>You have completed the tutorial 🎉</p>
+    </div>
+
+    <div class="controls">
+      <button id="prevBtn" onclick="prevStep()">Previous</button>
+      <button id="nextBtn" onclick="nextStep()">Next</button>
+    </div>
+  </main>
+</div>
+
+<script>
+  let currentStep = 0;
+  const steps = document.querySelectorAll('.step');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  function updateSteps() {
+    steps.forEach((step, index) => {
+      step.classList.toggle('active', index === currentStep);
+    });
+
+    prevBtn.disabled = currentStep === 0;
+    nextBtn.disabled = currentStep === steps.length - 1;
+  }
+
+  function nextStep() {
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      updateSteps();
+    }
+  }
+
+  function prevStep() {
+    if (currentStep > 0) {
+      currentStep--;
+      updateSteps();
+    }
+  }
+
+  function goStep(index) {
+    currentStep = index;
+    updateSteps();
+  }
+</script>
+
+</body>
+</html>
